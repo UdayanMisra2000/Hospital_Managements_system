@@ -1,0 +1,87 @@
+CREATE TABLE doctors(
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    specialist VARCHAR(20) NOT NULL,
+    timing VARCHAR(20) DEFAULT 'NA',
+    qualification VARCHAR(20) DEFAULT 'NA',
+    room INT UNIQUE
+);
+
+SELECT * FROM doctors;
+
+INSERT INTO doctors VALUES(25,'Dr.Aniruddha', 'Gynecologist', '6am - 3pm', 'MBBSc,MD', 17);
+INSERT INTO doctors VALUES(30,'Dr.Kingshuk','Physician', '10pm - 3am', 'MBBSc,MD', 36);
+INSERT INTO doctors VALUES(35,'Dr.Upasana', 'Surgeon','8pm - 2am','BDM',18);
+INSERT INTO doctors VALUES(40,'Dr.Saikat','Arthiritis','10am - 4pm','MBBSc,MS',40);
+
+CREATE TABLE patients(
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    disease VARCHAR(20) NOT NULL,
+    sex VARCHAR(15) DEFAULT 'NA',
+    admit_status VARCHAR(5) DEFAULT 'NA',
+    age INT NOT NULL
+);
+
+SELECT * FROM patients;
+
+INSERT INTO patients VALUES(52,'Pankaj','typhoid','Male','y',30);
+INSERT INTO patients VALUES(63,'Sumit','Cold','Male','y',23);
+INSERT INTO patients VALUES(85,'Vishal','Diabetes','Male', 'y',25);
+INSERT INTO patients VALUES(74,'Alok','Malaria','Male','y',45);
+
+CREATE TABLE emergency(
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    sex VARCHAR(15) DEFAULT 'NA',
+    admit_status VARCHAR(5) DEFAULT 'NA',
+    cause VARCHAR(20) NOT NULL,
+    age INT NOT NULL
+);
+
+SELECT * FROM emergency;
+
+INSERT INTO emergency VALUES(1022,'Soumili','Female','y','Severe Cholera',30);
+INSERT INTO emergency VALUES(1230,'Subhendu','Male','y','Heart attack',74);
+INSERT INTO emergency VALUES(1114,'Dibyodip','Male', 'y','AIDS',36);
+INSERT INTO emergency VALUES(1650,'Anik','Male','y','Car Accident',28);
+
+CREATE TABLE medicine(
+    name VARCHAR(50) PRIMARY KEY,
+    company VARCHAR(30) DEFAULT 'NA',
+    expiry VARCHAR(20) NOT NULL,
+    cost INT NOT NULL,
+    count INT NOT NULL
+);
+
+SELECT * FROM medicine;
+
+INSERT INTO medicine VALUES('Corex','Cino pvt','9-5-16' ,55, 8);
+INSERT INTO medicine VALUES('Nytra','Ace pvt','4-4-15',500, 5);
+INSERT INTO medicine VALUES('Brufa','Reckitt','12-7-17',50, 56);
+INSERT INTO medicine VALUES('Pride', 'DDF pvt','12-4-12',1100,100);
+
+CREATE TABLE lab(
+    facility VARCHAR(50) PRIMARY KEY,
+    cost INT NOT NULL
+);
+
+SELECT * FROM lab;
+
+INSERT INTO lab VALUES('X-ray',800);
+INSERT INTO lab VALUES('CT Scan',1200);
+INSERT INTO lab VALUES('OR Scan',500);
+INSERT INTO lab VALUES('Blood Bank',50);
+
+CREATE TABLE facility(
+    facilities VARCHAR(50) PRIMARY KEY
+);
+
+SELECT * FROM facility;
+
+INSERT INTO facility VALUES('Ambulance');
+INSERT INTO facility VALUES('Admit Facility');
+INSERT INTO facility VALUES('Canteen');
+INSERT INTO facility VALUES('Emergency');
+
+
